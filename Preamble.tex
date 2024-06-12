@@ -1,0 +1,386 @@
+%DIZIONARIO E FONT
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage[normalem]{ulem} %defines \sout{word} which strikes out {word} 
+\usepackage[most]{tcolorbox}
+
+%GEOMETRIA
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm, includefoot, headheight=14.5pt]{geometry} 
+\usepackage{changepage}
+
+%NOME INDICE
+\usepackage{etoolbox}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{etoc}
+\usepackage{tocloft}
+\usepackage{titletoc}
+%\addto\captionsitalian{\renewcommand{\contentsname}{\LARGE Contenuti}}
+%\renewcommand{\bibname}{References}
+
+\newcommand{\toc} {\etocsettocstyle{\vskip-2\baselineskip\noindent\rule{\linewidth}{0.5pt}\vskip0.3\baselineskip}{\noindent\rule{\linewidth}{0.5pt}\vskip0.5\baselineskip} \vspace{28.4pt} \setcounter{tocdepth}{3}\localtableofcontents}
+
+\newcommand{\assignment}{\noindent \textbf}
+
+\newcommand{\solution}{\medskip \noindent\textbf{Solution: }}
+
+
+
+%PACCHETTI MATEMATICI
+\usepackage{amssymb, amsmath, latexsym, mathrsfs}
+\usepackage{physics}
+\usepackage{bbold}
+\usepackage{mathtools}
+\usepackage{dutchcal}
+\usepackage{etoolbox}
+\usepackage[makeroom]{cancel}
+\usepackage{bigints}
+
+%FUNZIONI MATEMATICHE
+\usepackage{bm}
+\renewcommand{\!}[0]{\overset{!}{=}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\x}[1]{\vec{#1}}
+\newcommand{\vhat}[1]{\vec{\hat #1}}
+\renewcommand{\dv}[1]{\dot{\vec #1}}
+\newcommand{\ddv}[1]{\ddot{\vec #1}}
+\renewcommand{\times}{\ \wedge \ }
+\newenvironment{pp}[2]{\frac{\partial #1}{\partial #2}}{}
+\renewenvironment{dd}[2]{\frac{d #1}{d #2}}{}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\makeatletter
+\newcommand{\notparallel}{
+  \mathrel{\mathpalette\not@parallel\relax}}
+\newcommand{\not@parallel}[2]{
+  \ooalign{\reflectbox{$\m@th#1\smallsetminus$}\cr\hfil$\m@th#1\parallel$\cr}}
+\newcommand{\longmatrix}[4]{\left( \begin{matrix}     #1 & \dots  & #2\\ \vdots & \ddots & \vdots\\ #3 & \dots  & #4 \end{matrix} \right)}
+\newcommand{\vettore}[1]{\left( \begin{array}{c} #1 \end{array} \right)}
+\renewcommand{\[}{\left[}
+\renewcommand{\]}{\right]}
+\newcommand{\<}{\left<}
+\renewcommand{\>}{\right>}
+% Definizione del comando eqref personalizzato
+\let\originaleqref\eqref % Salva il vecchio comando eqref
+\RenewDocumentCommand{\eqref}{m o}{%
+    \IfNoValueTF{#2}{%
+        \textcolor{blue}{(\ref{#1})}% Senza suffisso
+    }{%
+        \textcolor{blue}{(\ref{#1}-#2)}% Con suffisso
+    }%
+}
+
+%GRAFICA
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{mdframed}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{soul}
+
+
+
+%COMANDI E STRUTTURA
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{comment}
+\usepackage{marginnote}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=magenta,      
+  urlcolor=cyan,
+  citecolor=blue
+}
+\renewcommand*{\marginfont}{\footnotesize\itshape}
+\usepackage{appendix}
+\usepackage{chngcntr}
+\usepackage{alphalph}
+
+%RIDEFINIZIONE DI ITEMIZE 
+\let\olditemize\itemize
+\let\endolditemize\enditemize
+
+\newlist{customitemize}{enumerate}{1}
+\setlist[customitemize]{label=(\textit{\roman*})\hspace{0.5em}, leftmargin=0pt, labelsep=0pt, itemindent=0em}
+
+\newenvironment{listx}{
+  \medskip
+  \begin{adjustwidth}{1cm}{}
+    \begin{customitemize}
+}{
+    \end{customitemize}
+  \end{adjustwidth}
+}
+
+
+%ALFABETO MATEMATICO
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\K}{\mathcal{K}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\N}{\mathcal{N}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\q}{\vec{\mathcal{q}}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\Rr}{\mathbb{R}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\1}{\mathbb{1}}
+\renewcommand{\epsilon}{\varepsilon}
+
+
+%AMBIENTI
+%TEMA
+\newcommand{\tem}{\ensuremath{\mathcal{T}}}
+\newcounter{j}
+\setcounter{j}{0}
+\newcounter{savedequation}
+\newcounter{tema}
+\renewcommand{\thetema}{\tem.\textit{\arabic{es}}} 
+\newenvironment{tema}[1][]{
+  \stepcounter{j} 
+  \medskip 
+  \refstepcounter{tema}%
+  \begin{mdframed}[linewidth=1.5,linecolor=teal, topline=false,rightline=false, bottomline=false]  
+    \addcontentsline{toc}{subsubsection}{\underline{\thetema} \hspace{3pt} #1}
+    \textcolor{teal}{\textbf{\large Tema~(\thetema){: #1} \newline}}
+    \setcounter{savedequation}{\value{equation}} 
+    \renewcommand{\theequation}{\thetema~- \arabic{equation}}
+    \setcounter{equation}{0}
+    \label{tema:\thej}\noindent}{
+  \setcounter{equation}{\value{savedequation}}
+  \end{mdframed}
+}
+
+%ESERCIZIO
+\definecolor{es}{RGB}{62, 113, 114}
+\newcounter{esercizio}
+\setcounter{esercizio}{0}
+\counterwithin{esercizio}{section}
+\newcommand{\theindexese}{$\R$}
+\newenvironment{exercise}[2][]{
+  \stepcounter{esercizio} 
+  	\bigskip \begin{tcolorbox}[
+  colback=es!5!white,
+  colframe=es!75!black,
+  title={EXERCISE \theesercizio: \ #1}]
+	#2
+\end{tcolorbox}
+    \addcontentsline{toc}{subsection}{\theesercizio~ #1 }
+    }{ 
+}
+
+
+
+
+
+%ESEMPIO
+\newcounter{esempio}
+\counterwithin{esempio}{subsection}
+\definecolor{gialloverde}{RGB}{112, 177, 63}
+\newenvironment{esempio}[1][] {\medskip \begin{adjustwidth}{1cm}{} \begin{mdframed}[linewidth=1.5,linecolor=gialloverde, topline=false,rightline=false,bottomline=false] \stepcounter{esempio}\textcolor{gialloverde}{\textbf{Esempio~\theesempio{: #1} \newline}}}{\medskip\end{mdframed}\end{adjustwidth} }
+
+%DIMOSTRAZIONE
+\newenvironment{dm}[1][] {\medskip \begin{adjustwidth}{1cm}{} \begin{mdframed}[linewidth=1.5,linecolor=gray, topline=false,rightline=false,bottomline=false] \textbf{Dimostrazione:}{ \itshape #1\ }}{\medskip \hfill{$\square$} \end{mdframed}\end{adjustwidth} \bigskip}
+
+%OSSERVAZIONE
+\newlist{osservazioneenum}{enumerate}{1}
+\setlist[osservazioneenum]{label=(\textit{\roman*})\hspace{0.5em}, leftmargin=0pt, labelsep=0pt, itemindent=2em}
+
+\newenvironment{osservazioni}[1][]{
+  \medskip
+  \begin{adjustwidth}{1cm}{}
+    \textbf{\textit{Osservazioni:}}\newline
+    \vspace{-0.5cm}
+    \begin{osservazioneenum}[label=(\textit{\roman*})\hspace{0.5em}, leftmargin=0pt, labelsep=0pt, itemindent=2em]}{
+    \end{osservazioneenum}
+  \end{adjustwidth}}
+  
+\newenvironment{osservazione}[1][]{
+  \bigskip
+  \begin{adjustwidth}{1cm}{}
+    \textbf{\textit{Osservazione:}}\vspace{0.1cm} \newline}{
+  \everypar{\leftskip=0pt} % Ripristina il rientro del testo
+  \end{adjustwidth}}
+
+%TEOREMI
+\usepackage{amsthm}
+\newtheoremstyle{a capo}% nome dello stile
+  {\topsep}% spazio sopra
+  {\topsep}% spazio sotto
+  {\itshape}% font del corpo
+  {}% indentazione del primo paragrafo
+  {\bfseries}% font dell'intestazione
+  {}% punteggiatura dopo l'intestazione
+  {\newline}% spazio dopo l'intestazione
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% formato dell'intestazione
+ \newtheoremstyle{due punti}% nome dello stile
+  {\topsep}% spazio sopra
+  {\topsep}% spazio sotto
+  {\itshape}% font del corpo
+  {}% indentazione del primo paragrafo
+  {\bfseries}% font dell'intestazione
+  {:}% punteggiatura dopo l'intestazione
+  { }% spazio dopo l'intestazione
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% formato dell'intestazione
+
+
+\newtheorem{df}{Definizione}
+\newtheorem{pr}{Principio}
+\newtheorem{pro}{Proposizione}
+\newtheorem{cor}{Corollario}
+\newtheorem{teo}{Teorema}
+\newtheorem{lemma}{Lemma}
+
+\counterwithin{df}{subsection}
+\counterwithin*{pr}{subsection}
+\counterwithin{pro}{subsection}
+\counterwithin{cor}{subsection}
+\counterwithin{teo}{subsection}
+
+
+
+%IMPAGINAZIONE
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\usepackage{ifthen}
+
+%TWOSIDE
+
+\fancypagestyle{twoside}{%
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[ER]{\textbf{\leftmark}}
+\fancyhead[OL]{\textbf{\rightmark}}
+\fancyfoot[LO,RE]{\thepage}}
+
+\fancypagestyle{fismat}{%
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[ER]{\textbf{\leftmark}}
+\fancyhead[OL]{\textbf{\rightmark}}
+\fancyfoot[LO,RE]{\thepage}
+\newgeometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm, includefoot, headheight=13.6pt}
+}
+
+\fancypagestyle{thesis}{%
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[EL]{\textbf{\leftmark}}
+\fancyhead[OR]{\textbf{\rightmark}}
+\fancyfoot[C]{\thepage}
+\newgeometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm, includefoot, headheight=14.5pt}
+\addtolength{\topmargin}{-0.89998pt}
+}
+
+\fancypagestyle{plain}{
+  \fancyhf{} % Clear header and footer
+  \fancyfoot[C]{\thepage} % Page number in the center of the footer
+  \renewcommand{\headrulewidth}{0pt} % No header rule
+}
+
+
+\fancypagestyle{Appendix}{%
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+%\pagenumbering{Alph}
+\fancyhead[EL]{\textbf{\leftmark}}
+\fancyhead[OR]{\textbf{\rightmark}}
+\fancyfoot[C]{\thepage}
+%\newgeometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm, includefoot, headheight=13.6pt}
+}
+
+
+
+%BIG MARGIN
+\fancypagestyle{bigmargin}{
+\fancyhead[E]{}
+\fancyhead[O]{}
+\fancyhead[OR]{\rightmark}
+\fancyhead[ER]{\thepage}
+\fancyhead[OL]{\thepage}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\newgeometry{innermargin=5cm,outermargin=2.5cm,marginparwidth=3cm,marginparsep=20pt}
+}
+
+
+%MARGIN FIGURE
+\newenvironment{MarginFigure}[2]{	
+	\begin{marginfigure}
+		\captionsetup{labelfont=bf}
+		\captionsetup{justification=centering}
+		\includegraphics[width=3cm]{#1}
+		\caption{#2}
+	\end{marginfigure}}
+
+
+
+
+%TITOLO
+\author{\strut}
+\date{\strut}
+\makeatletter
+\renewcommand\maketitle[1][]{
+{\raggedright 
+\begin{center} 
+\Huge \textit{\textbf{\@title}}\\[1.5ex]
+\Large \@author \\[1.5ex]
+\large \@date \\[1.5ex]
+\end{center}  \pagestyle{empty}  
+\ifstrequal{#1}{toc=off}{\bigskip}
+{\ifstrequal{#1}{toc=on}{ \vspace*{\fill} \toc \vspace*{\fill} \newpage}{}}
+}}
+\makeatother
+
+
+
+% Rimuove la numerazione dei capitoli
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
+
+% Formattazione dei capitoli nel libro
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{}{0pt}{}
+
+% Rimuove la numerazione dei capitoli nell'indice
+%\titlecontents{chapter}[0pt]{\large\itshape \bfseries}{}{}{\titlerule*[0.7pc]{}\contentspage}
+
+% Formattazione dei capitoli nell'indice
+%\titlecontents{chapter}[0pt]{\large\itshape}{}{}{\titlerule*[0.7pc]{.}\contentspage}
+
+% Numerazione delle sezioni
+
+\renewcommand{\thesection}{\arabic{section}}
+\titleformat{\section}{\normalfont\LARGE\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
+
+% Numerazione delle sottosezioni
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
+
+
